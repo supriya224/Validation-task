@@ -12,6 +12,7 @@
     "@types/react": "^18.2.34",
     "@types/react-dom": "^18.2.14",
     "axios": "^1.6.0",
+    "firebase": "^10.8.0",
     "gh-pages": "^6.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -47,6 +48,7 @@
     ]
   },
   "devDependencies": {
+    "@firebase/firestore": "^4.4.2",
     "@typescript-eslint/eslint-plugin": "^5.28.0",
     "@typescript-eslint/parser": "^5.28.0",
     "autoprefixer": "^10.4.16",

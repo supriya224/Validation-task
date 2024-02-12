@@ -3,6 +3,5 @@ export interface IState {
     username?: string;
     wallet?: string;
     amount?: string | number;
-    onClick: any;
   };
 }
