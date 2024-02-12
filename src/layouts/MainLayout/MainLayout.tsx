@@ -1,13 +1,15 @@
-import React, { ReactNode } from 'react'
+import React, { ReactNode } from "react";
 
 interface IMainComponent {
-    children: ReactNode
+  children: ReactNode;
 }
 
 function MainLayout({ children }: IMainComponent) {
-    return (
-        <main id='main-layout' className=' h-screen mt-16' >{children}</main>
-    )
+  return (
+    <main id="main-layout" className=" h-screen ">
+      {children}
+    </main>
+  );
 }
 
-export default MainLayout
+export default MainLayout;

@@ -1,4 +1,4 @@
-import { Toaster } from "react-hot-toast";
+// import { Toaster } from "react-hot-toast";
 import { MainLayout } from "../layouts";
 
 /* eslint-disable prettier/prettier */
@@ -7,55 +7,55 @@ function HomePage() {
 
   return (
     <MainLayout>
-      <div className=" ">
-        <div className="sticky top-0 z-50 " />
-        <aside className="relative overflow-hidden  text-black rounded-lg sm:mx-16 mx-2 sm:py-16">
-          <div className="relative z-10 max-w-screen-xl px-4  pb-20 pt-10 sm:py-24 mx-auto sm:px-6 lg:px-8">
-            <div className="max-w-xl sm:mt-1 mt-80 space-y-8 text-center sm:text-right sm:ml-auto">
-              <h2 className="text-4xl font-bold sm:text-5xl">
-                Download Now
-                <span className="hidden sm:block text-4xl">Lorem Ipsum</span>
+      <section>
+        <div className="bg-black text-white py-20">
+          <div className="container mx-auto flex flex-col md:flex-row items-center my-12 md:my-24">
+            <div className="flex flex-col w-full lg:w-1/3 justify-center items-start p-8">
+              <h1 className="text-3xl md:text-5xl p-2 text-yellow-300 tracking-loose">
+                TechFest
+              </h1>
+              <h2 className="text-3xl md:text-5xl leading-relaxed md:leading-snug mb-2">
+                Space : The Timeless Infinity
               </h2>
-
+              <p className="text-sm md:text-base text-gray-50 mb-4">
+                Explore your favourite events and register now to showcase your
+                talent and win exciting prizes.
+              </p>
               <a
-                className="inline-flex text-white items-center px-6 py-3 font-medium bg-rose-500 rounded-lg hover:opacity-75"
-                href="https://twitter.com/sahilnetic">
-                <svg
-                  fill="white"
-                  width="24"
-                  height="24"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fillRule="evenodd"
-                  clipRule="evenodd">
-                  <path d="M1.571 23.664l10.531-10.501 3.712 3.701-12.519 6.941c-.476.264-1.059.26-1.532-.011l-.192-.13zm9.469-11.56l-10.04 10.011v-20.022l10.04 10.011zm6.274-4.137l4.905 2.719c.482.268.781.77.781 1.314s-.299 1.046-.781 1.314l-5.039 2.793-4.015-4.003 4.149-4.137zm-15.854-7.534c.09-.087.191-.163.303-.227.473-.271 1.056-.275 1.532-.011l12.653 7.015-3.846 3.835-10.642-10.612z" />
-                </svg>
-                &nbsp; Download now
+                href="/"
+                className="bg-transparent hover:bg-yellow-300 text-yellow-300 hover:text-black rounded shadow hover:shadow-lg py-2 px-4 border border-yellow-300 hover:border-transparent">
+                Explore Now
               </a>
             </div>
+            <div className="p-8 mt-12 mb-6 md:mb-0 md:mt-0 ml-0 md:ml-12 lg:w-2/3  justify-center">
+              <div className="h-48 flex flex-wrap content-center">
+                <div>
+                  <img
+                    className="inline-block mt-28 xl:block"
+                    src="https://user-images.githubusercontent.com/54521023/116969935-c13d5b00-acd4-11eb-82b1-5ad2ff10fb76.png"
+                    alt=""
+                  />
+                </div>
+                <div>
+                  <img
+                    className="inline-block mt-24 md:mt-0 p-8 md:p-0"
+                    src="https://user-images.githubusercontent.com/54521023/116969931-bedb0100-acd4-11eb-99a9-ff5e0ee9f31f.png"
+                    alt=""
+                  />
+                </div>
+                <div className="hidden ">
+                  <img
+                    className="inline-block mt-28 lg:block"
+                    loading="lazy"
+                    src="https://user-images.githubusercontent.com/54521023/116969939-c1d5f180-acd4-11eb-8ad4-9ab9143bdb50.png"
+                    alt=""
+                  />
+                </div>
+              </div>
+            </div>
           </div>
-
-          <div className="absolute inset-0 w-full sm:my-20 sm:pt-1 pt-12 h-full ">
-            <img
-              className="w-96"
-              src="https://i.ibb.co/5BCcDYB/Remote2.png"
-              alt=""
-            />
-          </div>
-        </aside>
-
-        <div className="grid  place-items-center sm:mt-20">
-          <img
-            className="sm:w-96 w-48"
-            src="https://i.ibb.co/2M7rtLk/Remote1.png"
-            alt=""
-          />
         </div>
-
-        <h1 className="text-center text-2xl sm:text-5xl py-10 font-medium">
-          Lorem Ipsum Yojo
-        </h1>
-      </div>
-      <Toaster />
+      </section>
     </MainLayout>
   );
 }
