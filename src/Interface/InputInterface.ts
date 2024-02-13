@@ -1,6 +1,6 @@
 export interface IState {
   user: {
-    username?: string;
+    username?: string | any;
     wallet?: string;
     amount?: string;
   };

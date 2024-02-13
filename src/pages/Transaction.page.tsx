@@ -19,6 +19,7 @@ const TransactionPage: React.FC<{
       amount: ""
     }
   });
+
   const [error, setError] = useState<string | null>(null);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
