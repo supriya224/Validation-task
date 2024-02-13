@@ -1,4 +1,5 @@
 import { MainLayout } from "../layouts";
+// import /
 
 /* eslint-disable prettier/prettier */
 function AboutPage() {

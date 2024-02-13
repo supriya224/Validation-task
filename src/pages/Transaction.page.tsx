@@ -5,11 +5,14 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 
 import React, { useState } from "react";
-
+import { addDoc, collection } from "firebase/firestore";
 import { IState } from "../Interface/InputInterface";
+// import { dataRef } from "../firebase.config";
 
-const TransactionPage: React.FC = () => {
-  const [inputValue, setInputValue] = useState<IState>({
+const TransactionPage: React.FC<{
+  db: import("firebase/firestore").Firestore;
+}> = ({ db }) => {
+  const [inputValue, setInputValue] = useState<IState | any>({
     user: {
       username: "",
       wallet: "",
@@ -27,7 +30,7 @@ const TransactionPage: React.FC = () => {
     });
   };
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     if (!inputValue.user.username?.trim()) {
@@ -40,27 +43,29 @@ const TransactionPage: React.FC = () => {
       return;
     }
 
-    // Validate Ethereum address format using regular expression
-    // if (!/^0x[a-fA-F0-9]{40}$/.test(inputValue.user.wallet)) {
-    //   console.log(setError("Please enter a valid Ethereum address."));
-    //   return;
-    // }
-
     const amount = parseFloat(inputValue.user.amount || " ");
     if (Number.isNaN(amount) || amount < 0 || amount > 10000) {
       setError("Please enter a valid amount between 0 and 10,000.");
       return;
     }
-
+    // dataRef.ref().child("all").push(inputValue);
     setError(null);
     console.log(inputValue.user);
-    alert("Successfully submitted data!");
+    console.log("Successfully submitted data!");
+
+    try {
+      const docRef = await addDoc(collection(db, "users"), inputValue);
+      console.log("wallet  data saved successfully:", docRef.id);
+      setInputValue({ username: "", wallet: "", amount: "" });
+    } catch (err) {
+      console.error("Error saving wallet data:", err);
+    }
   };
 
   return (
     <div className="flex items-center justify-center">
       <div className="relative flex flex-col rounded-xl bg-transparent my-32 border-2 px-12 py-12 bg-clip-border shadow-none">
-        <h4 className="block font-sans text-2xl font-semibold leading-snug tracking-normal antialiased">
+        <h4 className="block font-sans text-3xl font-semibold leading-snug tracking-normal antialiased">
           User's wallet
         </h4>
         <p className="block my-2 font-sans text-base font-normal leading-relaxed antialiased">
@@ -100,7 +105,7 @@ const TransactionPage: React.FC = () => {
                 Wallet Address
               </label>
               {error && (
-                <p className="text-red-500 text-xs">{` Please enter the valid address `}</p>
+                <p className="text-red-500 text-xs">{` Wallet address field cannot be empty `}</p>
               )}
             </div>
             <div className="relative h-11 w-full min-w-[200px] mb-5">
@@ -121,8 +126,9 @@ const TransactionPage: React.FC = () => {
             </div>
           </div>
           <button
-            className="mt-6 block w-full select-none rounded-lg bg-pink-500 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+            className="mt-6 block w-full select-none rounded-lg bg-gray-900 py-5 px-6 text-center align-middle font-sans font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
             type="submit"
+            // onClick={submitData}
             data-ripple-light="true">
             Submit
           </button>

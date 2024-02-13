@@ -9,17 +9,21 @@ function Header() {
           <div className="px-5 xl:px-12 py-6 flex w-full items-center">
             <ul className=" container mx-auto justify-between gap-12 flex md:flex px-4  md:justify-center font-semibold font-heading ">
               <li>
-                <Link className="hover:text-gray-200" to="/">
+                <Link className="hover:text-pink-400 p-2  border-b-2" to="/">
                   Home
                 </Link>
               </li>
               <li>
-                <Link className="hover:text-gray-200" to="/transaction">
+                <Link
+                  className="hover:text-pink-400 p-2  border-b-2"
+                  to="/transaction">
                   Transaction
                 </Link>
               </li>
               <li>
-                <Link className="hover:text-gray-200" to="/about">
+                <Link
+                  className="hover:text-pink-400 p-2  border-b-2"
+                  to="/about">
                   Data
                 </Link>
               </li>
