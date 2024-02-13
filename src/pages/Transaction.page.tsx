@@ -4,7 +4,7 @@
 /* eslint-disable react/function-component-definition */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { addDoc, collection } from "firebase/firestore";
 import { IState } from "../Interface/InputInterface";
 // import { dataRef } from "../firebase.config";
@@ -19,7 +19,7 @@ const TransactionPage: React.FC<{
       amount: ""
     }
   });
-
+  const [user, setUsers] = useState([]);
   const [error, setError] = useState<string | null>(null);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
@@ -62,7 +62,6 @@ const TransactionPage: React.FC<{
       console.error("Error saving wallet data:", err);
     }
   };
-
   return (
     <div className="flex items-center justify-center">
       <div className="relative flex flex-col rounded-xl bg-transparent my-32 border-2 px-12 py-12 bg-clip-border shadow-none">
@@ -81,7 +80,7 @@ const TransactionPage: React.FC<{
               <input
                 className="peer h-full w-full rounded-md border border-blue-gray-200 bg-transparent px-3 py-3 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-pink-500 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
                 placeholder=" "
-                type="username"
+                type="text"
                 name="username"
                 value={inputValue.user.username}
                 onChange={handleChange}
@@ -98,7 +97,7 @@ const TransactionPage: React.FC<{
                 className="peer h-full w-full rounded-md border border-blue-gray-200 bg-transparent px-3 py-3 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-pink-500 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
                 placeholder=" "
                 name="wallet"
-                type="wallet address"
+                type="text"
                 value={inputValue.user.wallet}
                 onChange={handleChange}
               />

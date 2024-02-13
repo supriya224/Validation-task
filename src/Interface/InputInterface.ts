@@ -5,4 +5,3 @@ export interface IState {
     amount?: string;
   };
 }
-// export type Result<T> = { ok: true; value: T } | { ok: false; message: string };
