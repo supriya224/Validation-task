@@ -1,12 +1,13 @@
-// import { initializeApp } from "firebase/app";
-// import firebase from "firebase/compat/app";
-import "firebase/compat/firestore";
-// import { Firestore } from 'firebase/firestore';
+// import firebase, { initializeApp } from "firebase/app";
 // import { getFirestore } from "firebase/firestore";
 // import "firebase/firestore";
 // import "firebase/firestore";
-import firebase from "firebase/compat/app";
+// import "firebase/compat/firestore";
+// import "firebase/compat/app";
+// import * as firebase from "firebase";
 // import { getFirestore } from "firebase/firestore";
+import { initializeApp } from "firebase/app";
+import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBsmtJiBoejFRH-5xStBuJWK-p3an2AfVg",
@@ -19,12 +20,8 @@ const firebaseConfig = {
   appId: "1:822944672903:web:753a63935977e6dff91c22"
 };
 
-const firebaseApp = firebase.initializeApp(firebaseConfig);
+export const app = initializeApp(firebaseConfig);
 
-// Now you can get the App object
-const app: firebase.app.App = firebaseApp;
-// export const firebaseApp = initializeApp(firebaseConfig);
+const db = getFirestore(app);
 
-const db = firebase.firestore(firebaseApp);
-
-export { app, db, firebaseApp };
+export { db };
